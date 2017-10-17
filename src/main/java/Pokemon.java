@@ -100,9 +100,9 @@ public class Pokemon {
         int damage3 = d6.roll();
         int totalDamage = damage1 + damage2 + damage3;
 
-        System.out.println(this.name + " is attacking " + opponent.name);
+        System.out.println(this.name + " is attacking " + this.name);
         System.out.println(this.name + " rolls an attack bonus of " + attackBonus);
-        System.out.println(opponent.name + " rolls a defense bonus of " + defenseBonus);
+        System.out.println(this.name + " rolls a defense bonus of " + defenseBonus);
 
 
         /*
@@ -116,20 +116,20 @@ public class Pokemon {
             /*
              * Does opponent have hit points left?
              */
-            if ((opponent.hitPoints - totalDamage) > 0) {
-                System.out.println(opponent.name + " has "
-                        + (opponent.hitPoints - totalDamage) + " hit points");
+            if ((this.hitPoints - totalDamage) > 0) {
+                System.out.println(this.name + " has "
+                        + (this.hitPoints - totalDamage) + " hit points");
             } else {
-                System.out.println(opponent.name + " has been defeated!");
+                System.out.println(this.name + " has been defeated!");
             }
             /*
              * Set the opponents hitPoints appropriately.
              */
-            opponent.hitPoints = opponent.hitPoints - totalDamage;
+            this.hitPoints = this.hitPoints - totalDamage;
         } else {
             System.out.println("The attack missed!");
         }
         System.out.println(" ");
-        return (opponent.hitPoints < 1);
+        return (this.hitPoints < 1);
     }
 }
